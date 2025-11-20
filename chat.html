@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chat · Casa ROK</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #f4f2ed;
+      --ink: #2b3940;
+      --ink-soft: #6e7b82;
+      --accent: #d3b47f;
+      --card: #ffffff;
+      --radius: 18px;
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 16px;
+    }
+
+    .chat-wrapper {
+      width: 100%;
+      max-width: 420px;
+      background: var(--card);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* Encabezado del chat */
+    .chat-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      background: linear-gradient(135deg, #f6efe1, #ffffff);
+    }
+
+    .chat-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: radial-gradient(circle at 35% 35%, var(--accent), #b08e5a);
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-size: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .chat-header-text h1 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .chat-header-text p {
+      margin: 0;
+      font-size: 12px;
+      color: var(--ink-soft);
+    }
+
+    /* Zona de mensajes */
+    .chat-body {
+      flex: 1;
+      padding: 12px 12px 0;
+      background: linear-gradient(180deg, #f4f2ed, #faf9f6);
+      overflow-y: auto;
+      max-height: 70vh;
+    }
+
+    .message-row {
+      display: flex;
+      margin-bottom: 10px;
+    }
+
+    .message-row.bot {
+      justify-content: flex-start;
+    }
+
+    .message-row.user {
+      justify-content: flex-end;
+    }
+
+    .bubble {
+      max-width: 80%;
+      padding: 10px 12px;
+      border-radius: 18px;
+      font-size: 14px;
+      line-height: 1.3;
+    }
+
+    .bot .bubble {
+      background: #ffffff;
+      border-radius: 18px 18px 18px 4px;
+      color: var(--ink);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .user .bubble {
+      background: var(--accent);
+      border-radius: 18px 18px 4px 18px;
+      color: #1f2224;
+      font-weight: 500;
+    }
+
+    .timestamp {
+      font-size: 11px;
+      color: var(--ink-soft);
+      margin-top: 2px;
+    }
+
+    /* Zona de entrada */
+    .chat-footer {
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+      padding: 10px;
+      background: #ffffff;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .chat-input {
+      flex: 1;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 10px 14px;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .chat-input:focus {
+      border-color: var(--accent);
+    }
+
+    .chat-send-btn {
+      border: none;
+      border-radius: 999px;
+      background: var(--ink);
+      color: #fff;
+      font-weight: 600;
+      padding: 10px 16px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+    }
+
+    .chat-send-btn:hover {
+      background: #1e262a;
+    }
+
+    @media (max-width: 480px) {
+      .chat-wrapper {
+        max-width: 100%;
+        border-radius: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="chat-wrapper">
+  <!-- Encabezado del chat -->
+  <div class="chat-header">
+    <div class="chat-logo">
+      🐾
+      <!-- Si tiene el logo, puede usar:
+      <img src="logo-casa-rok.png" alt="Casa ROK" style="width:100%;height:100%;object-fit:cover;">
+      -->
+    </div>
+        <div class="chat-header-text">
+      <h1>Casa ROK · Chat</h1>
+      <p>El hogar de todo lo que tus peludos aman.</p>
+    </div>
+  </div>
+
+  <!-- Cuerpo del chat -->
+  <div class="chat-body" id="chatBody">
+    <!-- Mensaje inicial del bot -->
+    <div class="message-row bot">
+      <div>
+        <div class="bubble">
+          ¡Hola! 🐶 Soy el asistente de Casa ROK. ¿Te ayudo con productos, grooming o información general?
+        </div>
+        <div class="timestamp">Bot · ahora</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pie del chat (entrada) -->
+  <div class="chat-footer">
+    <input
+      type="text"
+      id="chatInput"
+      class="chat-input"
+      placeholder="Escribe tu mensaje aquí..."
+    />
+    <button class="chat-send-btn" id="sendBtn">
+      Enviar
+    </button>
+  </div>
+</div>
+
+<script>
+  const chatBody = document.getElementById('chatBody');
+  const chatInput = document.getElementById('chatInput');
+  const sendBtn = document.getElementById('sendBtn');
+
+  function agregarMensaje(texto, tipo = 'user') {
+    const row = document.createElement('div');
+    row.classList.add('message-row', tipo);
+
+    const wrapper = document.createElement('div');
+    const bubble = document.createElement('div');
+    bubble.classList.add('bubble');
+    bubble.textContent = texto;
+
+    const time = document.createElement('div');
+    time.classList.add('timestamp');
+    time.textContent = (tipo === 'user') ? 'Tú · ahora' : 'Bot · ahora';
+
+    wrapper.appendChild(bubble);
+    wrapper.appendChild(time);
+    row.appendChild(wrapper);
+    chatBody.appendChild(row);
+
+    // Desplazar hacia abajo al nuevo mensaje
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+  function simularRespuestaBot(textoUsuario) {
+    // Aquí más adelante puede conectar con su backend / modelo.
+    // Por ahora, una respuesta muy sencilla:
+    let respuesta = "Gracias por tu mensaje. Pronto integraremos la lógica del chatbot de Casa ROK para responder de forma inteligente 😊";
+
+    // Ejemplo muy básico: si el usuario escribe 'grooming'
+    if (textoUsuario.toLowerCase().includes('grooming')) {
+      respuesta = "Con gusto te ayudo con grooming 🛁. ¿Me compartes el nombre de tu perrito y si es pequeño, mediano o grande?";
+    }
+
+    if (textoUsuario.toLowerCase().includes('croqueta') || textoUsuario.toLowerCase().includes('croquetas')) {
+      respuesta = "Tenemos croquetas premium para cachorro, adulto y senior. ¿Qué edad y peso aproximado tiene tu perrito?";
+    }
+
+    agregarMensaje(respuesta, 'bot');
+  }
+
+  function manejarEnvio() {
+    const texto = chatInput.value.trim();
+    if (!texto) return;
+
+    // mensaje del usuario
+    agregarMensaje(texto, 'user');
+
+    // limpiar input
+    chatInput.value = '';
+
+    // simular respuesta del bot
+    setTimeout(() => {
+      simularRespuestaBot(texto);
+    }, 500);
+  }
+
+  sendBtn.addEventListener('click', manejarEnvio);
+  chatInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      manejarEnvio();
+    }
+  });
+</script>
+
+</body>
+</html>

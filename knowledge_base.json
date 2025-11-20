@@ -1,0 +1,141 @@
+[
+  {
+    "categoria": "saludo",
+    "patrones": [
+      "hola",
+      "buenos dias",
+      "buenas tardes",
+      "buenas noches",
+      "que tal",
+      "hey",
+      "holi"
+    ],
+    "respuesta": "¡Hola! Bienvenido a Casa ROK 🐾 ¿En qué puedo ayudarte hoy?"
+  },
+  {
+    "categoria": "despedida",
+    "patrones": [
+      "gracias",
+      "adios",
+      "hasta luego",
+      "nos vemos",
+      "bye",
+      "muchas gracias"
+    ],
+    "respuesta": "¡Gracias por visitarnos! 🐶✨ Casa ROK te desea un día lleno de patitas felices. Si necesitas algo más, aquí estaré."
+  },
+  {
+    "categoria": "general",
+    "patrones": [
+      "que es casa rok",
+      "quienes son casa rok",
+      "que venden en casa rok",
+      "informacion sobre casa rok"
+    ],
+    "respuesta": "Casa ROK es una tienda y spa canino inspirada en Roma, Odie y Kiara. Ofrecemos ropa, juguetes, croquetas, alimento húmedo y servicio de grooming profesional para perros."
+  },
+  {
+    "categoria": "general",
+    "patrones": [
+      "donde estan ubicados",
+      "direccion de casa rok",
+      "ubicacion de la tienda",
+      "como llegar a casa rok"
+    ],
+    "respuesta": "Estamos en Av. Huellitas 123, Ciudad de México. Puedes usar esta dirección en tu app de mapas para guiárt⁠e a Casa ROK."
+  },
+  {
+    "categoria": "general",
+    "patrones": [
+      "horario",
+      "horarios de atencion",
+      "a que hora abren",
+      "a que hora cierran"
+    ],
+    "respuesta": "Atendemos de lunes a sábado de 10:00 a 20:00 horas y domingos de 11:00 a 18:00 horas."
+  },
+  {
+    "categoria": "productos",
+    "patrones": [
+      "que productos venden",
+      "ropa y juguetes",
+      "croquetas",
+      "alimento para perro"
+    ],
+    "respuesta": "Tenemos ropa, juguetes, croquetas premium y alimento húmedo para perros de todos los tamaños y edades."
+  },
+  {
+    "categoria": "productos",
+    "patrones": [
+      "tallas de ropa",
+      "ropa para perros grandes",
+      "ropa para perros pequenos",
+      "ropa xs xl"
+    ],
+    "respuesta": "Manejamos tallas desde XS hasta XL. Si me cuentas peso, raza y medida de contorno de pecho, puedo ayudarte a elegir la talla ideal."
+  },
+  {
+    "categoria": "productos",
+    "patrones": [
+      "que croquetas recomiendan",
+      "croquetas cachorro",
+      "croquetas senior"
+    ],
+    "respuesta": "Tenemos croquetas premium para cachorros, adultos y perros senior. La recomendación depende de la edad y peso del perrito."
+  },
+  {
+    "categoria": "grooming",
+    "patrones": [
+      "servicios de grooming",
+      "que incluye el bano",
+      "spa para perros"
+    ],
+    "respuesta": "📌 Paquetes de grooming:\n• Esencial: baño + orejas + uñas\n• Completo: baño + corte + deslanado\n• Spa: baño medicado + masaje relajante\n¡Siempre con productos hipoalergénicos!"
+  },
+  {
+    "categoria": "grooming_agendar",
+    "patrones": [
+      "quiero agendar grooming",
+      "agendar una cita",
+      "reservar bano",
+      "reservar spa"
+    ],
+    "respuesta": "¡Perfecto! Para agendar grooming necesito: nombre del tutor, nombre y raza del perrito, tamaño (pequeño/mediano/grande), tipo de paquete y horario preferido."
+  },
+  {
+    "categoria": "grooming_cambios",
+    "patrones": [
+      "cancelar cita",
+      "reagendar grooming",
+      "cambiar la cita"
+    ],
+    "respuesta": "Puedes cancelar o mover tu cita con 24 horas de anticipación. Indícame tu nombre, el de tu perrito y la fecha para ayudarte."
+  },
+  {
+    "categoria": "envios",
+    "patrones": [
+      "envios",
+      "envio a domicilio",
+      "mandan productos a mi casa"
+    ],
+    "respuesta": "Sí 🚚💨 Hacemos envíos dentro de CDMX en 24–48 horas. El costo depende de la zona."
+  },
+  {
+    "categoria": "pagos",
+    "patrones": [
+      "formas de pago",
+      "puedo pagar con tarjeta",
+      "aceptan transferencia"
+    ],
+    "respuesta": "Aceptamos efectivo, tarjetas de crédito/débito y transferencias electrónicas."
+  },
+  {
+    "categoria": "cambios_devoluciones",
+    "patrones": [
+      "cambios",
+      "devoluciones",
+      "política de cambios"
+    ],
+    "respuesta": "Se aceptan cambios de tallas en ropa si está sin uso y con etiquetas. Los alimentos no tienen devolución si fueron abiertos."
+  }
+]

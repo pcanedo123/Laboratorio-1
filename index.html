@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Casa ROK · Tienda & Grooming para Perros</title>
+  <meta name="description" content="Casa ROK: ropa, juguetes, croquetas, alimento húmedo y servicio de grooming para perros. Inspirado en Roma, Odie y Kiara." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#2b3940;            /* azul grisáceo sobrio */
+      --ink-2:#1e262a;          /* más profundo para contrastes */
+      --sand:#efe7da;           /* beige cálido */
+      --gold:#d3b47f;           /* dorado suave para acentos */
+      --card:#ffffff;
+      --muted:#6e7b82;
+      --radius:18px;
+      --shadow:0 10px 30px rgba(0,0,0,.08);
+      --container:1160px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;color:var(--ink);font-family:Manrope,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif;background:linear-gradient(180deg,var(--sand),#fff 220px)}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--container);margin-inline:auto;padding:0 22px}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.8);backdrop-filter:saturate(120%) blur(8px);border-bottom:1px solid rgba(0,0,0,.06)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;color:var(--ink-2)}
+    .logo{width:44px;height:44px;border-radius:50%;overflow:hidden;display:grid;place-items:center;background:radial-gradient(circle at 35% 35%, var(--gold), #a98e5a);box-shadow:var(--shadow)}
+    .logo img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
+    .brand-name{font-family:"Playfair Display", serif;letter-spacing:.3px}
+    .menu{display:flex;gap:18px;align-items:center}
+    .menu a{color:var(--ink);opacity:.9}
+    .menu a:hover{opacity:1}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:999px;background:var(--ink-2);color:#fff;font-weight:700;box-shadow:var(--shadow)}
+    .btn.alt{background:transparent;color:var(--ink-2);border:1px solid rgba(30,38,42,.2)}
+
+    /* Hero */
+    .hero{padding:82px 0 56px;border-bottom:1px solid rgba(0,0,0,.06)}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
+    .hero h1{font-family:"Playfair Display", serif;font-size:48px;line-height:1.08;margin:0 0 10px;color:var(--ink-2)}
+    .hero p{color:var(--muted);font-size:18px;margin:0 0 22px}
+    .tagline{display:inline-block;margin-top:6px;color:var(--ink);font-weight:700}
+    .badges{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}
+    .badge{background:#fff;border:1px solid rgba(0,0,0,.06);padding:8px 12px;border-radius:999px;font-size:13px;color:var(--ink-2)}
+
+    .hero-card{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    .illus{aspect-ratio:1/1;border-radius:14px;background:
+      radial-gradient(180px 120px at 65% 45%, #2b3940 0 50%, transparent 55%),
+      radial-gradient(180px 120px at 35% 45%, #2b3940 0 50%, transparent 55%),
+      radial-gradient(420px 260px at 50% 60%, rgba(0,0,0,.08), rgba(0,0,0,0));
+      display:grid;place-items:center;color:#fff;font-size:64px
+    }
+
+    /* Secciones base */
+    section{padding:62px 0}
+    .section-title{font-family:"Playfair Display", serif;font-size:36px;margin:0 0 6px;color:var(--ink-2)}
+    .section-sub{color:var(--muted);margin:0 0 26px}
+
+    /* Categorías */
+    .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .cat{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
+    .cat .icon{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--gold),#a98e5a);display:grid;place-items:center;color:#fff;font-size:26px;margin-bottom:10px}
+    .cat h3{margin:6px 0 6px}
+    .cat p{color:var(--muted);margin:0}
+
+    /* Productos destacados */
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+    .thumb{height:180px;background:linear-gradient(180deg,#f2ede3,#e7dcc8)}
+    .card .body{padding:16px;display:grid;gap:6px}
+    .price{font-weight:800;color:var(--ink-2)}
+    .pill{font-size:12px;border:1px solid rgba(0,0,0,.12);padding:4px 8px;border-radius:999px;color:var(--muted);justify-self:start}
+
+    /* Grooming */
+    .grooming{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .panel{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:16px;box-shadow:var(--shadow);padding:20px}
+    .list{display:grid;gap:10px;margin:10px 0 0}
+    .item{display:flex;align-items:center;gap:10px}
+    .dot{width:10px;height:10px;border-radius:50%;background:var(--gold)}
+
+    /* Testimonios */
+    .testis{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .quote{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:16px;padding:18px;box-shadow:var(--shadow);color:var(--ink)}
+    .quote b{color:var(--ink-2)}
+
+    /* Contacto */
+    .contact{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+    form{display:grid;gap:12px;background:#fff;border:1px solid rgba(0,0,0,.06);padding:20px;border-radius:16px;box-shadow:var(--shadow)}
+    input, textarea, select{background:#f7f7f7;border:1px solid rgba(0,0,0,.12);border-radius:12px;padding:12px;color:var(--ink);font:inherit}
+    textarea{min-height:120px}
+    .info{background:#fff;border:1px solid rgba(0,0,0,.06);padding:20px;border-radius:16px;box-shadow:var(--shadow)}
+    .catalog-table{width:100%;border-collapse:collapse;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);background:#fff;margin-top:10px}
+    .catalog-table th, .catalog-table td{padding:10px 12px;border-bottom:1px solid rgba(0,0,0,.06);font-size:14px;text-align:left}
+    .catalog-table th{background:#f5efe2;color:var(--ink-2);font-weight:700}
+    .catalog-table tr:last-child td{border-bottom:none}
+    .catalog-actions{margin:10px 0 16px;}
+
+    /* Footer */
+    footer{padding:26px 0;border-top:1px solid rgba(0,0,0,.08);color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width: 1024px){
+      .hero-grid, .grid-4, .grid-3, .grooming, .contact, .testis{grid-template-columns:1fr}
+      .menu{display:none}
+      .hero h1{font-size:40px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#">
+        <div class="logo">🐾</div>
+        <div class="brand-name">Casa ROK</div>
+      </a>
+      <nav class="menu">
+        <a href="#categorias">Categorías</a>
+        <a href="#destacados">Productos</a>
+        <a href="#catalogo">Catálogo CSV</a>
+        <a href="#grooming">Grooming</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <a class="btn" href="#destacados">Comprar ahora</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h1>El hogar de todo lo que tus peludos aman.</h1>
+        <p>Inspirada en Roma, Odie y Kiara, Casa ROK reúne productos selectos para cuidar y consentir a tu perro: ropa, juguetes, croquetas, alimento húmedo y servicio de grooming profesional.</p>
+        <span class="tagline">Tienda & Spa canino · Envíos 24–48 h · Atención personalizada</span>
+        <div class="badges">
+          <span class="badge">Ropa & accesorios</span>
+          <span class="badge">Juguetes resistentes</span>
+          <span class="badge">Croquetas premium</span>
+          <span class="badge">Alimento húmedo</span>
+          <span class="badge">Grooming certificado</span>
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn" href="#destacados">Ver productos</a>
+          <a class="btn alt" href="#grooming">Agendar grooming</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="illus">🐶</div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+          <div>
+            <strong>Kit Bienvenida</strong>
+            <div class="muted" style="color:var(--muted)">Collar, juguete y snack saludable</div>
+          </div>
+          <div class="price">$499</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="categorias">
+    <div class="container">
+      <h2 class="section-title">Categorías</h2>
+      <p class="section-sub">Selecciona una categoría para explorar.</p>
+      <div class="grid-4">
+        <div class="cat"><div class="icon">👕</div><h3>Ropa</h3><p>Suéteres, impermeables y arneses con estilo.</p></div>
+        <div class="cat"><div class="icon">🧸</div><h3>Juguetes</h3><p>Didácticos, de resistencia y para cachorros.</p></div>
+        <div class="cat"><div class="icon">🥣</div><h3>Croquetas</h3><p>Fórmulas premium según talla y etapa.</p></div>
+        <div class="cat"><div class="icon">🍖</div><h3>Alimento húmedo</h3><p>Recetas naturales con alto contenido proteico.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="destacados">
+    <div class="container">
+      <h2 class="section-title">Productos destacados</h2>
+      <p class="section-sub">Calidad seleccionada por Casa ROK.</p>
+      <div class="grid-3">
+        <article class="card">
+          <div class="thumb"></div>
+          <div class="body">
+            <span class="pill">Ropa</span>
+            <h3>Suéter térmico antialergias</h3>
+            <p class="muted">Tela suave, respirable y lavable. Tallas XS–XL.</p>
+            <div class="price">$349</div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="thumb"></div>
+          <div class="body">
+            <span class="pill">Juguetes</span>
+            <h3>Hueso masticable irrompible</h3>
+            <p class="muted">Caucho grado veterinario. Ideal para dientes fuertes.</p>
+            <div class="price">$259</div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="thumb"></div>
+          <div class="body">
+            <span class="pill">Alimento</span>
+            <h3>Croqueta premium + Omega 3</h3>
+            <p class="muted">Alta digestibilidad y piel sana. Presentación 5 kg.</p>
+            <div class="price">$699</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="catalogo">
+    <div class="container">
+      <h2 class="section-title">Catálogo en formato CSV</h2>
+      <p class="section-sub">Vista rápida de algunos productos de Casa ROK. Puedes descargar el archivo CSV para usarlo en Excel u otras herramientas.</p>
+      <div class="catalog-actions">
+        <a class="btn alt" href="catalogo_casa_rok.csv" download>Descargar catálogo CSV</a>
+      </div>
+      <table class="catalog-table">
+        <thead>
+          <tr>
+            <th>Categoría</th>
+            <th>Producto</th>
+            <th>Descripción corta</th>
+            <th>Talla / Presentación</th>
+            <th>Precio (MXN)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ropa</td>
+            <td>Suéter térmico antialergias</td>
+            <td>Tejido suave y respirable, ideal para interior.</td>
+            <td>XS–XL</td>
+            <td>$349</td>
+          </tr>
+          <tr>
+            <td>Juguetes</td>
+            <td>Hueso masticable irrompible</td>
+            <td>Caucho de alta resistencia, apto para mordida fuerte.</td>
+            <td>Talla única</td>
+            <td>$259</td>
+          </tr>
+          <tr>
+            <td>Croquetas</td>
+            <td>Croqueta premium + Omega 3</td>
+            <td>Fórmula para piel sana y buena digestión.</td>
+            <td>Saco 5 kg</td>
+            <td>$699</td>
+          </tr>
+          <tr>
+            <td>Alimento húmedo</td>
+            <td>Latitas gourmet de cordero</td>
+            <td>Receta natural sin conservadores artificiales.</td>
+            <td>Lata 150 g</td>
+            <td>$89</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="grooming">
+    <div class="container">
+      <h2 class="section-title">Grooming profesional</h2>
+      <p class="section-sub">Baño, corte, deslanado y spa canino con productos hipoalergénicos.</p>
+      <div class="grooming">
+        <div class="panel">
+          <h3>Paquetes</h3>
+          <div class="list">
+            <div class="item"><span class="dot"></span><div><b>Esencial</b> — Baño + orejas + uñas · <b>$349</b></div></div>
+            <div class="item"><span class="dot"></span><div><b>Completo</b> — Baño + corte + deslanado · <b>$499</b></div></div>
+            <div class="item"><span class="dot"></span><div><b>Spa</b> — Baño medicado + masaje relajante · <b>$649</b></div></div>
+          </div>
+          <div style="margin-top:16px"><a class="btn" href="#contacto">Agendar cita</a></div>
+        </div>
+        <div class="panel">
+          <h3>Por qué elegirnos</h3>
+          <ul class="list" style="list-style:none;padding:0">
+            <li class="item"><span class="dot"></span>Atención amable y segura, con supervisión permanente.</li>
+            <li class="item"><span class="dot"></span>Cabinas higiénicas y productos hipoalergénicos.</li>
+            <li class="item"><span class="dot"></span>Registro de preferencias de tu peludo para próximas visitas.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">Opiniones</h2>
+      <p class="section-sub">Clientes felices, peludos felices.</p>
+      <div class="testis">
+        <div class="quote">“Excelente trato y productos de primera. Mi perro salió feliz del grooming.”<br><b>— Laura G.</b></div>
+        <div class="quote">“La croqueta recomendada mejoró su digestión. Envío rápido.”<br><b>— Diego R.</b></div>
+        <div class="quote">“Me encantó la ropa; tallas reales y telas suaves.”<br><b>— Sofía M.</b></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="container contact">
+      <form>
+        <h2 class="section-title">Contacto y pedidos</h2>
+        <label>Nombre<input type="text" placeholder="Tu nombre" required></label>
+        <label>Correo electrónico<input type="email" placeholder="tu@email.com" required></label>
+        <label>Tipo de solicitud<select><option>Pedido</option><option>Grooming</option><option>Información</option></select></label>
+        <label>Mensaje<textarea placeholder="Cuéntanos lo que necesitas…"></textarea></label>
+        <button class="btn" type="submit">Enviar</button>
+      </form>
+      <div class="info">
+        <h3>Casa ROK</h3>
+        <p>El hogar de todo lo que tus peludos aman.</p>
+        <p><b>Dirección:</b> Av. Huellitas 123, CDMX</p>
+        <p><b>Teléfono:</b> (55) 0000 0000</p>
+        <p><b>Horario:</b> Lun–Sáb 10:00–20:00 · Dom 11:00–18:00</p>
+        <p class="muted" style="color:var(--muted)">Sitio de demostración · No procesa pagos reales.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+      <div>© <span id="year"></span> Casa ROK. Todos los derechos reservados.</div>
+      <div style="display:flex;gap:12px">
+        <a href="#" class="muted">Aviso de privacidad</a>
+        <a href="#" class="muted">Términos</a>
+      </div>
+    </div>
+    <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+  </footer>
+</body>
+<script>
+  window.watsonAssistantChatOptions = {
+    integrationID: "77b5352d-5694-461a-a249-5f56768e0674", // The ID of this integration.
+    region: "us-south", // The region your integration is hosted in.
+    serviceInstanceID: "b50f7275-371b-47d8-977a-d7c4ff49e29d", // The ID of your service instance.
+    onLoad: async (instance) => { await instance.render(); }
+  };
+  setTimeout(function(){
+    const t=document.createElement('script');
+    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+    document.head.appendChild(t);
+  });
+</script>
+</html>
